@@ -24,8 +24,9 @@ Este é um projeto educacional para aprender os fundamentos do Laravel 12:
 
 ## 📋 Pré-requisitos
 
-- Docker Desktop instalado
+- Docker
 - Git
+- Composer
 
 ## 🚀 Instalação Local
 
@@ -36,45 +37,27 @@ git clone <url-do-repositorio>
 cd notes
 ```
 
-### 2. Copie o arquivo de ambiente
+### 2. Execute o setup inicial
 
 ```bash
-cp .env.example .env
+composer setup
 ```
-
-### 3. Instale as dependências (via Docker)
-
-```bash
-docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v "$(pwd):/var/www/html" \
-    -w /var/www/html \
-    laravelsail/php85-composer:latest \
-    composer install --ignore-platform-reqs
-```
-
-### 4. Suba os containers
+### 3. Suba os containers
 
 ```bash
 ./vendor/bin/sail up -d
 ```
 
-### 5. Gere a chave da aplicação
-
-```bash
-./vendor/bin/sail artisan key:generate
-```
-
-### 6. Execute as migrations
+### 4. Execute as migrations
 
 ```bash
 ./vendor/bin/sail artisan migrate
 ```
 
-### 7. (Opcional) Popule o banco de dados
+### 5. Popule o banco de dados
 
 ```bash
-./vendor/bin/sail artisan db:seed --class=UsersTableSeeder
+./vendor/bin/sail artisan db:seed
 ```
 
 Usuários criados:
@@ -82,7 +65,7 @@ Usuários criados:
 - user2@gmail.com / abc123456
 - user3@gmail.com / abc123456
 
-### 8. Acesse a aplicação
+### 6. Acesse a aplicação
 
 Abra o navegador em: **http://localhost**
 
