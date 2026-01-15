@@ -36,9 +36,7 @@
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
-            "@php artisan migrate --force",
-            "npm install",
-            "npm run build"
+            "@php -r \"$bashrc = getenv('HOME') . '/.bashrc'; $alias = \\\"alias sail='sh \\$([ -f sail ] && echo sail || echo vendor/bin/sail)'\\n\\\"; if (file_exists($bashrc) && strpos(file_get_contents($bashrc), \\\"alias sail=\\\") === false) { file_put_contents($bashrc, $alias, FILE_APPEND); echo \\\"Alias 'sail' adicionado ao ~/.bashrc\\n\\\"; } else { echo \\\"Alias 'sail' já existe ou ~/.bashrc não encontrado\\n\\\"; }\""
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
